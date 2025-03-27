@@ -1,0 +1,9 @@
+- name: Collect logs from Control Node
+  hosts: control_node
+  gather_facts: no
+  tasks:
+    - name: Fetch system logs
+      fetch:
+        src: /var/log/syslog
+        dest: ./logs/
+        flat: yes
